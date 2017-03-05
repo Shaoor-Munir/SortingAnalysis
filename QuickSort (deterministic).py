@@ -1,18 +1,15 @@
 
-def partition(A, s, pivot):
+def partition(A, s, e):
     i = s-1
-    j = s
 
-    while i< pivot and j < pivot:
-        if(A[j] > A[pivot]):
-            j+=1
-        else:
+    for j in range(s, e):
+        if(A[j] < A[e]):
+
             i+=1
             A[i], A[j] = A[j], A[i]
-            j += 1
 
     pivot = i+1
-    A[pivot], A[j] = A[j], A[pivot]
+    A[pivot], A[e] = A[e], A[pivot]
     return pivot
 
 
@@ -30,11 +27,3 @@ def quick_sort(A, s, e):
     quick_sort(A, pivot+1, e)
 
     return
-
-A = [8,6,7,3,2,1,5,6,7,4]
-
-print(A)
-
-quick_sort(A, 0, len(A)-1)
-
-print(A)
