@@ -29,12 +29,3 @@ def quick_sort(A, s, e):
     quick_sort(A, pivot+1, e)
 
     return
-
-
-A = [5,3,2,3,5,6,67,3,2,21,100]
-
-print(A)
-
-quick_sort(A, 0, len(A)-1)
-
-print (A)

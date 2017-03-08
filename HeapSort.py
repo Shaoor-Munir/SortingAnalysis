@@ -40,10 +40,3 @@ for i in range(20):
     A.append(random.randint(0,100))
 
 
-print(A)
-
-heap_sort(A)
-
-A.remove(A[0])
-print(A)
-

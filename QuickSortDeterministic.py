@@ -19,7 +19,6 @@ def quick_sort(A, s, e):
         return A
 
     pivot = e
-    print (pivot)
 
     pivot = partition(A, s, pivot)
 

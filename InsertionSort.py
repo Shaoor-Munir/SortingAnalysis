@@ -1,4 +1,4 @@
-def insertion_sort(A, n):
+def insertion_sort(A):
     for i in range(len(A)):
         valueToInsert = A[i]
         j = i
