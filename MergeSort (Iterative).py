@@ -55,7 +55,7 @@ def merge_sort (A):
 
         while starting_index < length-1:
 
-            mid = starting_index + current_size -1
+            mid = starting_index + current_size - 1
             ending_index = min(starting_index+2*current_size-1, length-1)
 
             merge(A, starting_index, mid, ending_index)
@@ -68,7 +68,7 @@ def merge_sort (A):
 
 A = []
 
-for i in range (20):
+for i in range (10):
     A.append(random.randint(0, 200))
 
 print(A)
