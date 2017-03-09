@@ -10,16 +10,20 @@ def merge(A, B):
     while len(A) != 0 and len(B) != 0:
         if A[0] < B[0]:
             mergedArray.append(A[0])
+            exchanges+=1
             comparisons+=1
             A.remove(A[0])
         else:
             mergedArray.append(B[0])
+            exchanges+=1
             B.remove(B[0])
 
     if len(A) == 0:
         mergedArray += B
+        exchanges+=len(B)
     else:
         mergedArray += A
+        exchanges+=len(A)
 
     return mergedArray, comparisons, exchanges
 
@@ -41,5 +45,5 @@ def merge_sort(A):
         c3 =0
         e3 =0
 
-        A, c3, e2 = merge(firstHalf, secondHalf)
-        return A, c1+c2+c3, e1+e2+e3
+        A, c3, e3 = merge(firstHalf, secondHalf)
+        return A, c3, e3
