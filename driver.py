@@ -9,107 +9,109 @@ import QuickSortRandomized
 
 A = []
 
+print("Total comparisons, exchanges and running time for value = 1000 are:")
 
+current_value = 100
+for i in range(5):
 
-for i in range (1000000):
-    A.append(random.randint(0, 2**32-1))
+    print("Calculating values for sample size: ", current_value)
+    for i in range(current_value):
+        A.append(random.randint(0, 2 ** 32 - 1))
 
+    print("---------Heap Sort---------")
 
-print ("Total comparisons, exchanges and running time for value = 1000 are:")
+    B = A.copy()
+    start_time = timeit.default_timer()
 
-print("---------Heap Sort--------")
+    comparisons, exchanges = HeapSort.heap_sort(B)
 
-B = A.copy()
+    total_time = timeit.default_timer() - start_time
+    print("Total comparisons are ", comparisons, " and total exchanges are ", exchanges)
 
-start_time = timeit.default_timer()
+    print("Total time taken is ", total_time)
 
-comparisons, exchanges = HeapSort.heap_sort(B)
+    print("---------Insertion Sort---------")
 
-total_time = timeit.default_timer() - start_time
-print("Total comparisons are ", comparisons, " and total exchanges are ", exchanges)
+    B = A.copy()
 
-print("Total time taken is ", total_time)
+    start_time = timeit.default_timer()
 
-print("---------Insertion Sort---------")
+    comparisons, exchanges = InsertionSort.insertion_sort(B)
 
-B = A.copy()
+    total_time = timeit.default_timer() - start_time
 
+    print("Total comparisons are ", comparisons, " and total exchanges are ", exchanges)
 
-start_time = timeit.default_timer()
+    print("Total time taken is ", total_time)
 
-#comparisons, exchanges = InsertionSort.insertion_sort(B)
+    print("---------Merge Sort (Recursive)--------")
 
-total_time = timeit.default_timer() - start_time
+    B = A.copy()
 
-print("Total comparisons are ", comparisons, " and total exchanges are ", exchanges)
+    start_time = timeit.default_timer()
 
-print("Total time taken is ", total_time)
+    B, comparisons, exchanges = MergeSortRecursive.merge_sort(B)
 
-print("---------Merge Sort (Recursive)--------")
+    total_time = timeit.default_timer() - start_time
 
-B = A.copy()
+    print("Total comparisons are ", comparisons, " and total exchanges are ", exchanges)
 
-start_time = timeit.default_timer()
+    print("Total time taken is ", total_time)
 
-B, comparisons, exchanges = MergeSortRecursive.merge_sort(B)
+    print("---------Merge Sort (Iterative)--------")
 
-total_time = timeit.default_timer() - start_time
+    B = A.copy()
 
-print("Total comparisons are ", comparisons, " and total exchanges are ", exchanges)
+    start_time = timeit.default_timer()
 
-print("Total time taken is ", total_time)
+    comparisons, exchanges = MergeSortIterative.merge_sort(B)
 
-print("---------Merge Sort (Iterative)--------")
+    total_time = timeit.default_timer() - start_time
 
-B = A.copy()
+    print("Total comparisons are ", comparisons, " and total exchanges are ", exchanges)
 
-start_time = timeit.default_timer()
+    print("Total time taken is ", total_time)
 
-comparisons, exchanges = MergeSortIterative.merge_sort(B)
+    print("---------Quick Sort (Deterministic)--------")
 
-total_time = timeit.default_timer() - start_time
+    B = A.copy()
 
-print("Total comparisons are ", comparisons, " and total exchanges are ", exchanges)
+    start_time = timeit.default_timer()
 
-print("Total time taken is ", total_time)
+    comparisons, exchanges = QuickSortDeterministic.quick_sort(B, 0, len(B) - 1)
 
-print("---------Quick Sort (Deterministic)--------")
+    total_time = timeit.default_timer() - start_time
 
-B = A.copy()
+    print("Total comparisons are ", comparisons, " and total exchanges are ", exchanges)
 
-start_time = timeit.default_timer()
+    print("Total time taken is ", total_time)
 
-comparisons, exchanges = QuickSortDeterministic.quick_sort(B, 0, len(B)-1)
+    print("---------Quick Sort (Randomized)--------")
 
-total_time = timeit.default_timer() - start_time
+    B = A.copy()
 
-print("Total comparisons are ", comparisons, " and total exchanges are ", exchanges)
+    start_time = timeit.default_timer()
 
-print("Total time taken is ", total_time)
+    comparisons, exchanges = QuickSortRandomized.quick_sort(B, 0, len(B) - 1)
 
-print("---------Quick Sort (Randomized)--------")
+    total_time = timeit.default_timer() - start_time
 
-B = A.copy()
+    print("Total comparisons are ", comparisons, " and total exchanges are ", exchanges)
 
-start_time = timeit.default_timer()
+    print("Total time taken is ", total_time)
 
-comparisons, exchanges = QuickSortRandomized.quick_sort(B, 0, len(B)-1)
+    print("---------Python--------")
 
-total_time = timeit.default_timer() - start_time
+    B = A.copy()
 
-print("Total comparisons are ", comparisons, " and total exchanges are ", exchanges)
+    start_time = timeit.default_timer()
 
-print("Total time taken is ", total_time)
+    B.sort()
 
+    total_time = timeit.default_timer() - start_time
 
-print("---------Python--------")
+    print("Total time taken is ", total_time)
 
-B = A.copy()
+    current_value*=10
 
-start_time = timeit.default_timer()
-
-B.sort()
-
-total_time = timeit.default_timer() - start_time
-
-print("Total time taken is ", total_time)
+    print("--------------------------------------------")
